@@ -106,12 +106,10 @@ f(w) от номера итерации
 
 ## 📁 Структура проекта
 project/
-│
-├── main.py # запуск экспериментов и визуализация
-├── optimizers.py # реализации методов оптимизации
-├── functions.py # функция, градиент, гессиан
-└── README.md
----
+|-- main.py
+|-- optimizers.py
+|-- functions.py
+`-- README.md
 
 ## ▶️ Запуск проекта
 
@@ -119,4 +117,8 @@ project/
 
 ```bash
 pip install numpy matplotlib
+```
+
+Запуск 
+```bash
 python main.py
