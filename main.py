@@ -147,6 +147,24 @@ def plot_contour(best_result):
     plt.grid()
     plt.show()
 
+
+def plot_convergence(best_result):
+    gd_values = path_values(best_result["gd"])
+    momentum_values = path_values(best_result["momentum"])
+    newton_values = path_values(best_result["newton"])
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(range(len(gd_values)), gd_values, marker='o', label='Gradient Descent')
+    plt.plot(range(len(momentum_values)), momentum_values, marker='o', label='Momentum')
+    plt.plot(range(len(newton_values)), newton_values, marker='o', label='Newton')
+
+    plt.title('Сходимость методов: f(w) по итерациям')
+    plt.xlabel('Итерация')
+    plt.ylabel('f(w)')
+    plt.legend()
+    plt.grid()
+    plt.show()
+
 # =========================
 # Основная программа
 # =========================
@@ -157,24 +175,24 @@ def main():
     num_random_points = 5
 
     gd_params = {
-        "learning_rate": 0.01,
-        "iterations": 10
+        "learning_rate": 0.001,
+        "iterations": 2000
     }
 
     momentum_params = {
-        "learning_rate": 0.01,
-        "iterations": 10,
+        "learning_rate": 0.001,
+        "iterations": 1000,
         "alpha": 0.8
     }
 
     newton_params = {
-        "learning_rate": 0.5,
-        "iterations": 5,
+        "learning_rate": 1,
+        "iterations": 10,
         "eps": 1e-6,
         "max_step": 1.0
     }
 
-    random_starts = [np.random.uniform(-1.5, 1.5, size=2) for _ in range(num_random_points)]
+    random_starts = [np.random.random(2) for _ in range(num_random_points)]
 
     print("Случайные стартовые точки:")
     for i, point in enumerate(random_starts, 1):
@@ -210,7 +228,6 @@ def main():
 
     plot_contour(best_result)
     plot_convergence(best_result)
-    plot_3d_surface(best_result)
 
 
 if __name__ == "__main__":
