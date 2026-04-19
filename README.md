@@ -106,10 +106,10 @@ f(w) от номера итерации
 
 ## 📁 Структура проекта
 project/
-|-- main.py
-|-- optimizers.py
-|-- functions.py
-`-- README.md
+- main.py          — запуск экспериментов и визуализация
+- optimizers.py    — реализации методов оптимизации
+- functions.py     — функция, градиент, гессиан
+- README.md
 
 ## ▶️ Запуск проекта
 
